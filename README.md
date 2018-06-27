@@ -89,8 +89,8 @@ $ make
 # My Environment
 
 * macOS Sierra
-* Go 1.9.1
-* dep 0.3.1
+* Go 1.10.3
+* dep 0.4.1
 * git 2.13.5 (Apple Git-94)
 * GNU Make 3.81
 

@@ -4,32 +4,32 @@
 [[projects]]
   name = "cloud.google.com/go"
   packages = ["compute/metadata"]
-  revision = "eaddaf6dd7ee35fd3c2420c8d27478db176b0485"
-  version = "v0.15.0"
+  revision = "2d3a6656c17a60b0815b7e06ab0be04eacb6e613"
+  version = "v0.16.0"
 
 [[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  revision = "130e6b02ab059e7b717a096f397c5b60111cae74"
+  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","context/ctxhttp"]
-  revision = "1087133bc4af3073e18add999345c6ae75918503"
+  revision = "fc492d2e106922eb3aa4bca863d55e882c087ae3"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/oauth2"
   packages = [".","google","internal","jws","jwt"]
-  revision = "bb50c06baba3d0c76f9d125c0719093e315b5b44"
+  revision = "f95fa95eaa936d9d87489b15d1d18b97c1ba9c28"
 
 [[projects]]
   branch = "master"
   name = "google.golang.org/api"
-  packages = ["firebasedynamiclinks/v1","gensupport","googleapi","googleapi/internal/uritemplates","urlshortener/v1"]
-  revision = "425ca37925f1cb7dcbdac2e5fbad56b7c95b7c0c"
+  packages = ["firebasedynamiclinks/v1","gensupport","googleapi","googleapi/internal/uritemplates","pubsub/v1beta2","urlshortener/v1"]
+  revision = "cd4b2e727ec609b8e6f2430d588c795fec5b575c"
 
 [[projects]]
   name = "google.golang.org/appengine"
@@ -40,6 +40,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "763da978858dacab469c31502efbedee7765e8c7f7e73a035c61c36a2dff8ef0"
+  inputs-digest = "eb7fc94b07fb69f1b7d86c8e9db88932441495e254fd4f313da690a6fb7d48e5"
   solver-name = "gps-cdcl"
   solver-version = 1

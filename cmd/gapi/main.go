@@ -7,6 +7,7 @@
 package main
 
 import (
+	"context"
 	"encoding/gob"
 	"errors"
 	"flag"
@@ -27,9 +28,9 @@ import (
 
 	"github.com/tckz/gapi"
 	_ "github.com/tckz/gapi/firebase"
+	_ "github.com/tckz/gapi/pubsub"
 	_ "github.com/tckz/gapi/urlshortener"
 
-	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 )

@@ -19,5 +19,5 @@ clean:
 
 dist/gapi: $(SRCS_GAPI) $(SRCS_OTHER)
 	if [ ! -d dist ];then mkdir dist; fi
-	go build -o $@ -ldflags "-X main.version=`git show -s --format=%H`" $(SRCS_GAPI) 
+	go build -o $@ -ldflags "-X main.version=`git show -s --format=%H`" $<
 	@echo "$@ done."
