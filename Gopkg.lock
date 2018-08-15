@@ -4,8 +4,8 @@
 [[projects]]
   name = "cloud.google.com/go"
   packages = ["compute/metadata"]
-  revision = "2d3a6656c17a60b0815b7e06ab0be04eacb6e613"
-  version = "v0.16.0"
+  revision = "777200caa7fb8936aed0f12b1fd79af64cc83ec9"
+  version = "v0.24.0"
 
 [[projects]]
   branch = "master"
@@ -16,30 +16,57 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
-  packages = ["context","context/ctxhttp"]
+  packages = [
+    "context",
+    "context/ctxhttp"
+  ]
   revision = "fc492d2e106922eb3aa4bca863d55e882c087ae3"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/oauth2"
-  packages = [".","google","internal","jws","jwt"]
+  packages = [
+    ".",
+    "google",
+    "internal",
+    "jws",
+    "jwt"
+  ]
   revision = "f95fa95eaa936d9d87489b15d1d18b97c1ba9c28"
 
 [[projects]]
   branch = "master"
   name = "google.golang.org/api"
-  packages = ["firebasedynamiclinks/v1","gensupport","googleapi","googleapi/internal/uritemplates","pubsub/v1beta2","urlshortener/v1"]
+  packages = [
+    "firebasedynamiclinks/v1",
+    "gensupport",
+    "googleapi",
+    "googleapi/internal/uritemplates",
+    "pubsub/v1beta2",
+    "urlshortener/v1"
+  ]
   revision = "cd4b2e727ec609b8e6f2430d588c795fec5b575c"
 
 [[projects]]
   name = "google.golang.org/appengine"
-  packages = [".","internal","internal/app_identity","internal/base","internal/datastore","internal/log","internal/modules","internal/remote_api","internal/urlfetch","urlfetch"]
+  packages = [
+    ".",
+    "internal",
+    "internal/app_identity",
+    "internal/base",
+    "internal/datastore",
+    "internal/log",
+    "internal/modules",
+    "internal/remote_api",
+    "internal/urlfetch",
+    "urlfetch"
+  ]
   revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
   version = "v1.0.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "eb7fc94b07fb69f1b7d86c8e9db88932441495e254fd4f313da690a6fb7d48e5"
+  inputs-digest = "364438c71a00de497911958b5da9eba46d01acc7dad1840730418a273c1e8296"
   solver-name = "gps-cdcl"
   solver-version = 1
