@@ -53,28 +53,9 @@ Options:
         Number of simultaneous requests (default 5)
   ```
 
-### Command: urlshortener
-
-#### get
-
-* Expand long URL from shortened URL.
-  ```text
-  $ gapi [auth args] urlshortener get https://goo.gl/xytZo2
-  ```
-
-  ```json
-  {
-    "id":"https://goo.gl/xytZo2",
-    "kind":"urlshortener#url",
-    "longUrl":"https://developers.google.com/url-shortener/?hl=ja",
-    "status":"OK"
-  }
-  ```
-
 # Build
 
-```bash
-$ dep ensure
+```
 $ make
 ```
 
