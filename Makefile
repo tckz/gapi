@@ -5,7 +5,8 @@ TARGETS=\
 
 SRCS_OTHER = \
 	$(wildcard */*.go) \
-	$(wildcard *.go)
+	$(wildcard *.go) \
+	go.mod
 
 all: $(TARGETS)
 	@echo "$@ done."
@@ -14,7 +15,6 @@ clean:
 	/bin/rm -f $(TARGETS)
 	@echo "$@ done."
 
-dist/gapi: cmd/gapi/main.go $(SRCS_OTHER) go.mod
-	if [ ! -d dist ];then mkdir dist; fi
-	go build -o $@ -ldflags "-X main.version=`git describe  --tags --always`" $<
+dist/gapi: cmd/gapi/* $(SRCS_OTHER)
+	go build -o $@ -ldflags "-X main.version=`git describe  --tags --always`" ./cmd/gapi/
 	@echo "$@ done."

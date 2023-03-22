@@ -13,7 +13,6 @@ import (
 	"flag"
 	"fmt"
 	"hash/fnv"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -95,7 +94,7 @@ func main() {
 
 			return newOAuthClient(ctx, config)
 		} else {
-			bytes, err := ioutil.ReadFile(*serviceAccountJson)
+			bytes, err := os.ReadFile(*serviceAccountJson)
 			if err != nil {
 				log.Fatalf("*** Failed to ReadFile(%s): %v", *serviceAccountJson, err)
 			}
@@ -220,7 +219,7 @@ func valueOrFileContents(value string, filename string) string {
 	if value != "" {
 		return value
 	}
-	slurp, err := ioutil.ReadFile(filename)
+	slurp, err := os.ReadFile(filename)
 	if err != nil {
 		log.Fatalf("Error reading %q: %v", filename, err)
 	}

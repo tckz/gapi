@@ -80,19 +80,10 @@ $ make
 
 ## Requirement
 
-* Go 1.9
-* dep
+* Go 1.20
 * git
 * make
 
-
-# My Environment
-
-* macOS Sierra
-* Go 1.10.3
-* dep 0.4.1
-* git 2.13.5 (Apple Git-94)
-* GNU Make 3.81
 
 # License
 
