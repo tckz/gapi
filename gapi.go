@@ -1,11 +1,12 @@
 package gapi
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 )
 
-type CommandFunc func(c *http.Client, argv []string) int
+type CommandFunc func(ctx context.Context, c *http.Client, argv []string) int
 type CommandEntry struct {
 	Func  CommandFunc
 	Scope string
