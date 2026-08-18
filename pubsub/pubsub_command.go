@@ -1,19 +1,3 @@
-// Copyright 2017 Google Inc. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-// based on https://github.com/google/google-api-go-client/blob/master/examples/pubsub.go
-
 package pubsub
 
 import (
@@ -32,14 +16,14 @@ import (
 	"github.com/samber/lo"
 	"github.com/tckz/gapi"
 	"google.golang.org/api/option"
-	gps "google.golang.org/api/pubsub/v1beta2"
+	"google.golang.org/api/pubsub/v1"
 )
 
 func init() {
-	gapi.RegisterCommand("pubsub", gps.PubsubScope, pubsubMain)
+	gapi.RegisterCommand("pubsub", pubsub.PubsubScope, pubsubMain)
 }
 
-type subCommandFunc func(context.Context, *gps.Service, []string) int
+type subCommandFunc func(context.Context, *pubsub.Service, []string) int
 
 var subCommands = map[string]subCommandFunc{
 	"pull-message": pullMessage,
@@ -58,7 +42,7 @@ func pubsubMain(ctx context.Context, client *http.Client, argv []string) int {
 		return 2
 	}
 
-	svc, err := gps.NewService(ctx, option.WithHTTPClient(client))
+	svc, err := pubsub.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to create Pubsub service: %v", err)
 	}
@@ -72,7 +56,7 @@ func pubsubMain(ctx context.Context, client *http.Client, argv []string) int {
 	}
 }
 
-func sendDummy(ctx context.Context, svc *gps.Service, argv []string) int {
+func sendDummy(ctx context.Context, svc *pubsub.Service, argv []string) int {
 
 	fs := flag.NewFlagSet("send-dummy", flag.ExitOnError)
 	parallel := fs.Int("parallel", 1, "Parallelism of publishing process")
@@ -100,8 +84,8 @@ func sendDummy(ctx context.Context, svc *gps.Service, argv []string) int {
 					if !ok {
 						return
 					}
-					req := &gps.PublishRequest{
-						Messages: []*gps.PubsubMessage{
+					req := &pubsub.PublishRequest{
+						Messages: []*pubsub.PubsubMessage{
 							{
 								Data: base64.StdEncoding.EncodeToString([]byte(strconv.Itoa(n))),
 							},
@@ -132,15 +116,15 @@ func sendDummy(ctx context.Context, svc *gps.Service, argv []string) int {
 	return 0
 }
 
-func pullMessage(ctx context.Context, svc *gps.Service, argv []string) int {
+func pullMessage(ctx context.Context, svc *pubsub.Service, argv []string) int {
 
 	if len(argv) == 0 {
-		fmt.Fprintf(os.Stderr, "Usage: pubsub pull-message subscripiton\n")
+		fmt.Fprintf(os.Stderr, "Usage: pubsub pull-message subscription\n")
 		return 2
 	}
 
 	subName := argv[0]
-	pullRequest := &gps.PullRequest{
+	pullRequest := &pubsub.PullRequest{
 		ReturnImmediately: false,
 		MaxMessages:       1,
 	}
@@ -155,7 +139,7 @@ func pullMessage(ctx context.Context, svc *gps.Service, argv []string) int {
 				log.Fatalf("pullMessages DecodeString() failed: %v", err)
 			}
 			fmt.Printf("%s\n", data)
-			ackRequest := &gps.AcknowledgeRequest{
+			ackRequest := &pubsub.AcknowledgeRequest{
 				AckIds: []string{receivedMessage.AckId},
 			}
 			if _, err = svc.Projects.Subscriptions.Acknowledge(subName, ackRequest).Do(); err != nil {
