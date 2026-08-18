@@ -26,7 +26,6 @@ import (
 	"time"
 
 	"github.com/tckz/gapi"
-	_ "github.com/tckz/gapi/firebase"
 	_ "github.com/tckz/gapi/pubsub"
 
 	"golang.org/x/oauth2"
