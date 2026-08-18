@@ -18,7 +18,7 @@ import (
 )
 
 var (
-	serviceAccountJson = flag.String("service-account", "", "/path/to/service-account.json")
+	serviceAccountJSON = flag.String("service-account", "", "/path/to/service-account.json")
 	showVersion        = flag.Bool("version", false, "show Version")
 )
 var (
@@ -53,15 +53,15 @@ func main() {
 
 	ctx := context.Background()
 	client := func() *http.Client {
-		if *serviceAccountJson != "" {
-			b, err := os.ReadFile(*serviceAccountJson)
+		if *serviceAccountJSON != "" {
+			b, err := os.ReadFile(*serviceAccountJSON)
 			if err != nil {
-				log.Fatalf("*** Failed to ReadFile(%s): %v", *serviceAccountJson, err)
+				log.Fatalf("*** Failed to ReadFile(%s): %v", *serviceAccountJSON, err)
 			}
 
 			c, err := google.JWTConfigFromJSON(b, command.Scope)
 			if err != nil {
-				log.Fatalf("*** Failed to JWTConfigFromJSON(%s): %v", *serviceAccountJson, err)
+				log.Fatalf("*** Failed to JWTConfigFromJSON(%s): %v", *serviceAccountJSON, err)
 			}
 			return c.Client(ctx)
 		}
