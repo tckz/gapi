@@ -16,5 +16,5 @@ clean:
 	@echo "$@ done."
 
 dist/gapi: cmd/gapi/* $(SRCS_OTHER)
-	go build -o $@ -ldflags "-X main.version=`git describe  --tags --always`" ./cmd/gapi/
+	go build -o $@ -ldflags "-s -X main.version=`git describe  --tags --always`" -trimpath ./cmd/gapi/
 	@echo "$@ done."

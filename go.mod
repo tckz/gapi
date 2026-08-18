@@ -3,7 +3,7 @@ module github.com/tckz/gapi
 go 1.26
 
 require (
-	cloud.google.com/go/auth v0.23.0
+	cloud.google.com/go/auth v0.23.1
 	github.com/samber/lo v1.53.0
 	golang.org/x/oauth2 v0.36.0
 	google.golang.org/api v0.293.0
